@@ -9,26 +9,26 @@ uses
 type
   TfcaBairros = class(TForm)
     GroupBox: TGroupBox;
-    Panel1: TPanel;
-    sbNovo: TSpeedButton;
-    sbSalvar: TSpeedButton;
-    sbExcluir: TSpeedButton;
-    sbFechar: TSpeedButton;
     Label1: TLabel;
     edtCodigo: TEdit;
     cbStatus: TComboBox;
     Label2: TLabel;
     Label3: TLabel;
     edtDescricao: TEdit;
-    sbVoltar: TSpeedButton;
+    pnControle: TPanel;
+    sbNovo: TSpeedButton;
+    sbSalvar: TSpeedButton;
+    sbExcluir: TSpeedButton;
+    sbAnterior: TSpeedButton;
     sbProximo: TSpeedButton;
+    sbFechar: TSpeedButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
-    procedure sbVoltarClick(Sender: TObject);
+    procedure sbAnteriorClick(Sender: TObject);
     procedure sbProximoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -141,7 +141,7 @@ begin
   GroupBox.Enabled  := True;
   sbSalvar.Enabled  := True;
   sbExcluir.Enabled := False;
-  sbVoltar.Enabled  := False;
+  sbAnterior.Enabled  := False;
   sbProximo.Enabled := False;
   sbNovo.Enabled    := False;
   edtCodigo.Clear();
@@ -218,14 +218,14 @@ begin
   cbStatus.ItemIndex := qrQuery.FieldByName( 'STATUS' ).AsInteger;
 
   sbExcluir.Enabled := ( qrQuery.FieldByName( 'CODIGO' ).AsString <> '' );
-  sbVoltar.Enabled  := ( qrQuery.FieldByName( 'CODIGO' ).AsString <> '' );
+  sbAnterior.Enabled  := ( qrQuery.FieldByName( 'CODIGO' ).AsString <> '' );
   sbProximo.Enabled := ( qrQuery.FieldByName( 'CODIGO' ).AsString <> '' );
 
   sbNovo.Enabled    := True;
   sbSalvar.Enabled  := False;       
 end;
 
-procedure TfcaBairros.sbVoltarClick(Sender: TObject);
+procedure TfcaBairros.sbAnteriorClick(Sender: TObject);
 begin
   Voltar( Sender );
 end;
@@ -246,7 +246,7 @@ begin
   
   if ( Trim( edtDescricao.Text ) = '' ) then
   begin
-    ShowMessage( 'Informe a descrição do bairro porra' );
+    ShowMessage( 'Informe a descrição do bairro' );
     edtDescricao.SetFocus();
     Result := False;  
     Abort;
@@ -280,9 +280,9 @@ begin
             end;
 
      VK_F5: begin
-              if ( sbVoltar.Enabled ) then
+              if ( sbAnterior.Enabled ) then
               begin
-                 sbVoltar.Click();
+                 sbAnterior.Click();
               end;
             end;
 
@@ -292,7 +292,6 @@ begin
                  sbProximo.Click();
               end;
             end;
-
 
     VK_ESCAPE: sbFechar.Click();
   end;

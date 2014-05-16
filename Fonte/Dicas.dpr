@@ -2,7 +2,7 @@ program Dicas;
 
 uses
   Forms,
-  uapPrincipal in 'uapPrincipal.pas' {Form1},
+  uapPrincipal in 'uapPrincipal.pas' {fapPrincipal},
   ucaBairros in 'ucaBairros.pas' {fcaBairros},
   uDM in 'uDM.pas' {DM: TDataModule};
 

@@ -8,7 +8,7 @@ uses
 
 type
   TfapPrincipal = class(TForm)
-    MainMenu1: TMainMenu;
+    MainMenu: TMainMenu;
     mmCadastro: TMenuItem;
     mmBairros: TMenuItem;
     procedure mmBairrosClick(Sender: TObject);

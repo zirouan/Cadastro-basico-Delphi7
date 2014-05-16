@@ -12,12 +12,12 @@ object fapPrincipal: TfapPrincipal
   Font.Style = []
   FormStyle = fsMDIForm
   KeyPreview = True
-  Menu = MainMenu1
+  Menu = MainMenu
   OldCreateOrder = False
   WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
-  object MainMenu1: TMainMenu
+  object MainMenu: TMainMenu
     Left = 28
     Top = 16
     object mmCadastro: TMenuItem
