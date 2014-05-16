@@ -91,7 +91,7 @@ ImageBase=4194304
 ExeDescription=
 [Directories]
 OutputDir=
-UnitOutputDir=C:\Padrao\_dcu
+UnitOutputDir=..\_dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
@@ -138,6 +138,7 @@ Comments=
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
-Item0=C:\Padrao\_dcu
-Item1=C:\Tiago\_dcu
+Count=3
+Item0=..\_dcu
+Item1=C:\Padrao\_dcu
+Item2=C:\Tiago\_dcu
